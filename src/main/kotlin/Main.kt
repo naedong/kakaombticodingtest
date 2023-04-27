@@ -10,44 +10,14 @@ fun solution(survey : Array<String>, choices : IntArray): String {
     var answer = ""
     var result = IntArray(4)
     var sum = ArrayList<String>()
-    survey.mapIndexed { index, s ->
-        if(choices[index] > 4){
-            when(s.last()){
-                'A' ->  sum.add("A = ${choices[index] - 4}")
-                'C' -> sum.add("C = ${choices[index] - 4}")
-                'F' ->  sum.add("F = ${choices[index] - 4}")
-                'M'  ->  sum.add("M = ${choices[index] - 4}")
-                'R'  ->  sum.add("R = ${choices[index] - 4}")
-                'T'  ->  sum.add("T = ${choices[index] - 4}")
-                'J'  ->  sum.add("J = ${choices[index] - 4}")
-                'N'  ->  sum.add("N = ${choices[index] - 4}")
-                else -> println("Index ${s.last()}")
+          survey.mapIndexed{index, i ->
+            if( 4 < choices[index] ){
+                sum.add("${i.last()} = ${choices[index] - 4}")
             }
-        }
-        else if (choices[index] < 4){
-            when(s.first()){
-                'A' ->  sum.add("A = ${convert(choices[index]) }")
-                'C' -> sum.add("C = ${convert(choices[index]) }")
-                'F' ->  sum.add("F = ${convert(choices[index]) }")
-                'M'  ->  sum.add("M = ${convert(choices[index]) }")
-                'R'  ->  sum.add("R = ${convert(choices[index]) }")
-                'T'  ->  sum.add("T = ${convert(choices[index]) }")
-                'J'  ->  sum.add("J = ${convert(choices[index]) }")
-                'N'  ->  sum.add("N = ${convert(choices[index])}")
-                else -> println("Index ${s.last()}")
+            else if ( 4 > choices[index]) {
+                sum.add("${i.first()} = ${convert(choices[index])}")
             }
-        } else {
-            when(s.first()){
-                'A' ->  sum.add("A = 0")
-                'C' -> sum.add("C = 0")
-                'F' ->  sum.add("F = 0")
-                'M'  ->  sum.add("M = 0")
-                'R'  ->  sum.add("R = 0")
-                'T'  ->  sum.add("T = 0")
-                'J'  ->  sum.add("J = 0")
-                'N'  ->  sum.add("N = 0")
-                else -> println("Index ${s.last()}")
-            }
+            else {}
         }
 
     }
