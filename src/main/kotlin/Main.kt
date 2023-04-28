@@ -10,11 +10,7 @@ fun solution(survey : Array<String>, choices : IntArray): String {
     var answer = ""
     var result = IntArray(4)
     var sum = ArrayList<String>()
-<<<<<<< HEAD
         survey.mapIndexed{index, i ->
-=======
-          survey.mapIndexed{index, i ->
->>>>>>> 53ebe87606cc36dba848fe5761337738c8d8f0a9
             if( 4 < choices[index] ){
                 sum.add("${i.last()} = ${choices[index] - 4}")
             }
